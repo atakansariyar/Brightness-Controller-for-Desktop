@@ -1,146 +1,103 @@
-# Brightness Controller for Desktop
+# <img src="assets/brightness_icon.png" width="32" height="32"> Brightness Controller for Desktop
 
-Control your external monitor's brightness using DDC/CI with a beautiful Windows 11 style on-screen display (OSD).
+Control your external monitor's brightness using keyboard shortcuts with a Windows 11-style OSD.
 
-![Demo](demo.gif)
-
-## Why This Project?
-
-I created this tool after discovering that the brightness keys on my **Logitech MX Keys S** keyboard don't work with external monitors. Windows only allows native brightness control for laptop displays, leaving external monitor users without a convenient solution.
-
-This application bridges that gap by using DDC/CI protocol to communicate directly with your monitor, while providing a beautiful Windows 11-style on-screen display.
-
-### Getting the Best Experience
-
-**Keyboards with macro support** (like Logitech, Razer, Corsair, etc.) will provide the smoothest experience. Here's how to set it up:
-
-1. Open your keyboard's software (e.g., **Logi Options+**, Razer Synapse, iCUE)
-2. Find the non-functional brightness keys or any key you want to remap
-3. Go to the macro/key assignment settings
-4. While in "key listening" mode, use [**F-Key Sender**](https://github.com/ThioJoe/F-Key-Sender) to send F13-F24 keys
-5. Assign F13 for brightness down and F14 for brightness up
-
-### Why F13-F24?
-
-I recommend using **F13 and above** because these keys are unused in virtually all applications. This means you won't accidentally trigger any shortcuts while adjusting your brightness.
+![Demo](assets/demo.gif)
 
 ## Features
 
-- 🌞 **DDC/CI Support** - Works with external monitors that support DDC/CI protocol
-- 🎨 **Windows 11 Style OSD** - Clean, modern popup with rounded corners and smooth animations
-- 🌗 **Auto Theme Detection** - Automatically switches between light and dark themes
-- ⌨️ **Customizable Hotkeys** - Configure any key combination
-- 🚀 **Smooth Animations** - Hardware-accelerated slide animations with DWM sync
-- 🔧 **Highly Configurable** - Customize popup size, colors, animation speed, and more
+- DDC/CI brightness control for external monitors
+- Windows 11 style animated OSD popup
+- Multi-monitor support (all / cursor position / specific monitor)
+- Customizable hotkeys via Settings GUI
+- F-Key Sender Tool for keyboard macro integration
+- Multi-language: English, Türkçe, Русский, 中文, 日本語
+- System tray integration
 
 ## Requirements
 
-- **Windows 10/11**
-- **AutoHotkey v2.0** - [Download here](https://www.autohotkey.com/) *(not needed if using pre-compiled EXE)*
-- **DDC/CI compatible monitor** - Most external monitors support this (check your monitor's OSD settings)
-
-### For F13-F24 Keys
-
-If your keyboard doesn't have F13-F24 keys, you can use **F-Key Sender** to remap other keys:
-- [F-Key Sender by ThioJoe](https://github.com/ThioJoe/F-Key-Sender)
+- Windows 10/11
+- External monitor with DDC/CI support
+- AutoHotkey v2.0 (only for .ahk version)
 
 ## Installation
 
-### Method 1: Download Pre-compiled EXE (Easiest)
+### Using Setup
+1. Run `setup.ahk` as administrator
+2. Choose installation type (AHK or EXE)
+3. Choose whether to add to Windows startup
 
-1. Download `brightness_control.exe` from this repository
-2. Double-click to run - **no installation required!**
+**Recommendation:** Use the EXE version for convenience. If you prefer customization, you can create your own EXE by deleting the included `brightness_control.exe` and compiling the `brightness_control.ahk` file yourself.
 
-### Method 2: Run as Script
+### Manual
+1. Copy files to your preferred location
+2. Run `brightness_control.exe` (or `.ahk` with AutoHotkey)
+
+## Hotkey Configuration
+
+Open **Settings** from the system tray to configure hotkeys:
+
+![Settings](assets/settings.png)
+
+1. Click the **Capture** button next to any hotkey field
+2. Press your desired key
+3. The key is assigned immediately
+4. Click **Save** to apply and restart
+
+## F-Key Sender Tool
+
+This utility helps you assign virtual F13-F24 keys as brightness hotkeys when using keyboard macro software (like Logi Options+, Razer Synapse, etc.).
+
+![F-Key Sender Tool](assets/f-key_tool.png)
+
+**Use cases:**
+- Assign F13-F24 as brightness hotkeys in this app
+- Configure keyboard software buttons to send F13-F24 (use this tool to verify the key is being sent)
+
+**How it works:**
+1. Configure your keyboard software to send F13-F24 on a button
+2. Open Settings → F-Key Sender Tool
+3. Click **Capture** in Settings for the hotkey you want to assign
+4. Use F-Key Sender to send the key so you can capture it
+5. The virtual key is now assigned as your brightness hotkey
+
+## Creating Your Own EXE
+
+If you want to customize the script and create your own compiled version:
 
 1. Install [AutoHotkey v2.0](https://www.autohotkey.com/)
-2. Download `brightness_control.ahk`
-3. Double-click to run
+2. Make your modifications to `brightness_control.ahk`
+3. Right-click the .ahk file → **Compile Script**
+   - Alternatively: Start menu → AutoHotkey → **Ahk2Exe**
+4. Select your .ahk file as source
+5. Optionally set a custom icon (.ico file)
+6. Click **Convert**
+7. Delete the old EXE and use your new compiled version
 
-### Method 3: Compile to EXE Yourself
+## Files
 
-**Quick way:** Right-click `brightness_control.ahk` → **Compile Script** *(may not work on some systems)*
-
-**Using Ahk2Exe GUI (recommended):**
-
-1. Open Start Menu, search **Ahk2Exe**
-2. Set these options:
-   - **Source:** Select `brightness_control.ahk`
-   - **Destination:** Choose where to save the `.exe`
-   - **Base File:** Select `AutoHotkey64.exe` (for 64-bit) or leave as default
-3. Click **Convert**
-
-## Auto-Start on Windows Boot
-
-### Using Startup Folder (Recommended)
-
-1. Press `Win + R`
-2. Type `shell:startup` and press Enter
-3. Create a shortcut to `brightness_control.ahk` (or `.exe`) in this folder
-
-### Using Task Scheduler
-
-1. Open Task Scheduler
-2. Create Basic Task → Set trigger to "At startup"
-3. Set action to start the script/exe
-
-## Configuration
-
-Edit the script file to customize:
-
-```autohotkey
-; Hotkeys (leave empty "" to disable)
-hotkeyDecrease := "F13"       ; Decrease brightness
-hotkeyIncrease := "F14"       ; Increase brightness
-
-; Brightness Control
-brightnessStep := 10          ; Change per key press (1-100)
-
-; Popup Behavior
-popupTimeout := 2000          ; Duration before popup closes (ms)
-
-; Animation
-animationEnabled := true
-animationDuration := 200      ; Open animation (ms)
-```
-
-### Hotkey Examples
-
-| Keys | Value |
-|------|-------|
-| F13 | `"F13"` |
-| Ctrl + Minus | `"^-"` |
-| Ctrl + Plus | `"^="` |
-| Win + Up | `"#Up"` |
-| Alt + F1 | `"!F1"` |
+| File | Description |
+|------|-------------|
+| `brightness_control.exe` | Main application (compiled) |
+| `brightness_control.ahk` | Main application (source) |
+| `setup.ahk` | Installer script |
+| `assets/` | Icons and media files |
+| `config.ini` | Configuration (auto-generated) |
 
 ## Troubleshooting
 
-### Monitor Not Detected
+**Monitor not detected?**
+- Enable DDC/CI in your monitor's OSD menu
+- Reconnect monitor cable
 
-1. **Enable DDC/CI** in your monitor's OSD settings
-2. Make sure you're using a **direct cable connection** (not through a KVM or dock)
-3. Try a different cable (DisplayPort and HDMI both support DDC/CI)
-
-### Brightness Not Changing
-
-- Some monitor brands have limited DDC/CI support
-- Try updating your graphics drivers
-- Check if other DDC/CI tools work (e.g., ControlMyMonitor, Monitorian)
-
-## Technical Details
-
-- Uses Windows DDC/CI API via `Dxva2.dll`
-- GDI+ for anti-aliased rendering with 4x supersampling
-- Layered windows with per-pixel alpha for smooth rounded corners
-- QueryPerformanceCounter for precise animation timing
-- DwmFlush for VSync synchronization
+**Hotkeys not working?**
+- Check for conflicting applications
+- Run as administrator
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) file
+MIT License
 
 ## Credits
 
-- Built with [AutoHotkey v2](https://www.autohotkey.com/)
-- Inspired by Windows 11 volume/brightness OSD
+Developed by [@atakansariyar](https://github.com/atakansariyar)
