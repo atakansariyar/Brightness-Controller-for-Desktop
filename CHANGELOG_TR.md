@@ -1,6 +1,24 @@
 # Değişiklik Günlüğü
 
-Desktop Brightness Controller için tüm önemli değişiklikler.
+Masaüstü Parlaklık Denetleyicisi için tüm önemli değişiklikler.
+
+## [2.1.0] - 2026-01-10
+
+### Yeni Özellikler
+
+- Hızlı Parlaklık Popup'ı - System tray ikonuna çift tıklayarak modern slider popup'ı açın
+  - Parlaklığı ayarlamak için sürükleyin veya scroll yapın
+- Çoklu Tuş Kısayol Yakalama - Modifier tuş kombinasyonları desteği
+  - Ctrl+Alt+Tuş, Win+Shift+Tuş vb. yakalayın
+- Yerelleştirilmiş Tray Menüsü - System tray menüsü seçilen dile çevrilir
+- Doğrulamalı Config Yenileme - config.ini hatalıysa hata mesajı gösterir
+- Bağımsız Kurulum Programı - `setup.exe` artık AutoHotkey gerektirmeden kurulum yapabilir
+- Yüksek Öncelikli Başlangıç - Diğer uygulamalardan önce başlamak için Task Scheduler seçeneği
+- Ayarlarda Başlangıç Modu - Başlangıç yapılandırmasını doğrudan Ayarlar'dan görüntüleyin ve doğrulayın
+- OSD Popup Açma/Kapama - Ayarlarda Windows 11 tarzı popup'ı devre dışı bırakma seçeneği
+- Kaldırma Aracı - `uninstall.exe` veya `uninstall.ahk` (AutoHotkey gerektirir) ile uygulamayı temiz bir şekilde kaldırma
+
+---
 
 ## [2.0.0] - 2026-01-09
 
@@ -10,34 +28,24 @@ Tamamen yeniden yazılmış kod tabanı ve birçok yeni özellik içeren büyük
 
 ### Yeni Özellikler
 
-- **Ayarlar GUI** - Sistem tepsisinden erişilebilen tam grafik arayüz
-- **Çoklu Monitör Desteği**
+- Ayarlar GUI - System tray'den erişilebilen tam grafik arayüz
+- Çoklu Monitör Desteği
   - Tüm monitörler modu
   - İmleç konumu modu (yalnızca farenin bulunduğu monitörü ayarlar)
   - İndeksle belirli monitör seçimi
   - Windows'tan gerçek monitör isimleri (örn. "XG2405")
-- **Harici Yapılandırma** - Ayarlar `config.ini` dosyasına kaydedilir
-- **Çoklu Dil Desteği** - 5 dil:
-  - English
-  - Türkçe
-  - Русский
-  - 中文
-  - 日本語
-- **F-Tuşu Gönderici** - Kısayol yakalama için F13-F24 sanal tuş gönderme aracı
-- **Kısayol Yakalama** - "Yakala"ya tıklayın ve herhangi bir tuşa basarak atayın
-- **Kurulum Programı** - Tek tıkla kurulum:
-  - Program Files'a otomatik kopyalama
-  - İsteğe bağlı Windows başlangıç kısayolu
-  - Özel ikon uygulaması
-- **Özel Sistem Tepsisi İkonu** - Güneş ikonu
-- **Varsayılanlara Dön** - Tek tıkla fabrika ayarlarına sıfırlama
-- **Geri Al** - Kaydedilmemiş değişiklikleri geri al
-- **Config Klasörünü Aç** - Yapılandırma dosyasına hızlı erişim
+- Harici Yapılandırma - Ayarlar `config.ini` dosyasına kaydedilir
+- Çoklu Dil Desteği - 5 dil: English, Türkçe, Русский, 中文, 日本語
+- F-Tuşu Gönderici - Kısayol yakalama için F13-F24 sanal tuş gönderme aracı
+- Kısayol Yakalama - "Yakala"ya tıklayın ve herhangi bir tuşa basarak atayın
+- Kurulum Programı - Başlangıç kısayolu ile tek tıkla kurulum
+- Özel System Tray İkonu - Kolay tanımlama için güneş ikonu
+- Varsayılanlara Dön / Geri Al / Ayar Klasörünü Aç butonları
 
 ### Yeni Dosyalar
 
 - `setup.ahk` - Kurulum script'i
-- `brightness_icon.ico` - Özel tepsi ikonu
+- `brightness_icon.ico` - Özel tray ikonu
 - `config.ini` - Yapılandırma dosyası (otomatik oluşturulur)
 
 ---

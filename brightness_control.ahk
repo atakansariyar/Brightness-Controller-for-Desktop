@@ -16,7 +16,7 @@ OnExit((*) => DllCall("winmm\timeEndPeriod", "uint", 1))
 
 ; ========================= VERSION =========================
 
-global APP_VERSION := "2.0.0"
+global APP_VERSION := "2.1.0"
 
 ; ========================= GLOBAL CONFIG VARIABLES =========================
 
@@ -45,6 +45,11 @@ InitLocalization() {
         "mode_cursor", "Cursor Position",
         "mode_cursor_hint", "Adjusts the monitor where mouse cursor is",
         "enable_animations", "Enable Animations",
+        "enable_popup", "Enable OSD Popup",
+        "startup_mode", "Startup Mode:",
+        "startup_disabled", "Disabled",
+        "startup_normal", "Normal (Startup Folder)",
+        "startup_high", "High Priority (Task Scheduler)",
         "language", "Language:",
         "save_restart", "Save",
         "undo", "Undo",
@@ -61,7 +66,24 @@ InitLocalization() {
         "send", "Send",
         "version", "Version",
         "monitor_detected", "monitor(s) detected!",
-        "searching", "Searching for DDC/CI monitor..."
+        "searching", "Searching for DDC/CI monitor...",
+        "menu_settings", "Settings",
+        "menu_reload", "Reload Config",
+        "menu_exit", "Exit",
+        "config_error_title", "Config Error",
+        "config_reloaded", "Configuration reloaded.",
+        "config_repaired", "Configuration repaired.",
+        "config_load_failed", "Warning: Config could not be loaded.",
+        "config_startup_explain", "• Repair: Config will be reset to default values.`n• Continue: Config will not be read, new settings will not be saved.",
+        "config_reload_explain", "• Repair: Config will be recreated with last cached or default values.`n• Continue: Config will not be read, new settings will not be saved.",
+        "config_option_repair", "Repair",
+        "config_option_default", "Continue",
+        "config_confirm", "Are you sure?",
+        "config_confirm_btn", "Confirm",
+        "config_no_cache_warning", "No cached settings found. Your old settings will be lost and default values will be used. Are you sure?",
+        "startup_invalid", "Invalid startup option. Please manually add the startup option or run the installer again.",
+        "startup_help", "I need help.",
+        "startup_admin_required", "Administrator permission is required to change high priority startup setting. Do you want to continue?"
     )
     
     ; Turkish
@@ -77,12 +99,17 @@ InitLocalization() {
         "mode_cursor", "İmleç Konumu",
         "mode_cursor_hint", "Fare imlecinin bulunduğu monitörü ayarlar",
         "enable_animations", "Animasyonları Etkinleştir",
+        "enable_popup", "OSD Popup'u Etkinleştir",
+        "startup_mode", "Başlangıç Modu:",
+        "startup_disabled", "Devre Dışı",
+        "startup_normal", "Normal (Başlangıç Klasörü)",
+        "startup_high", "Yüksek Öncelikli (Task Scheduler)",
         "language", "Dil:",
         "save_restart", "Kaydet",
         "undo", "Geri Al",
         "cancel", "İptal",
         "restore_defaults", "Varsayılanlara Dön",
-        "open_config", "Ayar Klasörünü Aç",
+        "open_config", "Config Klasörünü Aç",
         "fkey_tool", "F-Tuşu Gönderici",
         "fkey_title", "F-Tuşu Gönderici",
         "select_fkey", "F-Tuşu Seç:",
@@ -93,7 +120,24 @@ InitLocalization() {
         "send", "Gönder",
         "version", "Sürüm",
         "monitor_detected", "monitör algılandı!",
-        "searching", "DDC/CI monitör aranıyor..."
+        "searching", "DDC/CI monitör aranıyor...",
+        "menu_settings", "Ayarlar",
+        "menu_reload", "Config'i Yenile",
+        "menu_exit", "Çıkış",
+        "config_error_title", "Config Hatası",
+        "config_reloaded", "Yapılandırma yeniden yüklendi.",
+        "config_repaired", "Yapılandırma onarıldı.",
+        "config_load_failed", "Uyarı: Config yüklenemedi.",
+        "config_startup_explain", "• Onar: Config varsayılan değerlere sıfırlanır.`n• Devam Et: Config okunmaz, yeni ayarlar kaydedilmez.",
+        "config_reload_explain", "• Onar: Config son önbellek değerleri yada varsayılan değerlerle yeniden oluşturulur.`n• Devam Et: Config okunmaz, yeni ayarlar kaydedilmez.",
+        "config_option_repair", "Onar",
+        "config_option_default", "Devam Et",
+        "config_confirm", "Emin misiniz?",
+        "config_confirm_btn", "Onayla",
+        "config_no_cache_warning", "Önbellekte kayıtlı ayar bulunmuyor. Eski ayarlarınız kaybolacak ve default değerler atanacak. Emin misiniz?",
+        "startup_invalid", "Geçersiz başlatma seçeneği. Lütfen manuel olarak başlatma seçeneği ekleyin veya kurulumu yeniden başlatın.",
+        "startup_help", "Yardıma ihtiyacım var.",
+        "startup_admin_required", "Yüksek öncelikli başlatıcı ayarını değiştirmek için yönetici izni gereklidir. Devam etmek istiyor musunuz?"
     )
     
     ; Russian
@@ -109,6 +153,11 @@ InitLocalization() {
         "mode_cursor", "Позиция курсора",
         "mode_cursor_hint", "Регулирует монитор под курсором мыши",
         "enable_animations", "Включить анимации",
+        "enable_popup", "Включить OSD",
+        "startup_mode", "Режим запуска:",
+        "startup_disabled", "Отключено",
+        "startup_normal", "Обычный (Папка автозагрузки)",
+        "startup_high", "Высокий приоритет (Планировщик)",
         "language", "Язык:",
         "save_restart", "Сохранить",
         "undo", "Отменить",
@@ -125,7 +174,24 @@ InitLocalization() {
         "send", "Отправить",
         "version", "Версия",
         "monitor_detected", "монитор(ов) обнаружено!",
-        "searching", "Поиск DDC/CI монитора..."
+        "searching", "Поиск DDC/CI монитора...",
+        "menu_settings", "Настройки",
+        "menu_reload", "Перезагрузить конфиг",
+        "menu_exit", "Выход",
+        "config_error_title", "Ошибка конфигурации",
+        "config_reloaded", "Конфигурация перезагружена.",
+        "config_repaired", "Конфигурация восстановлена.",
+        "config_load_failed", "Предупреждение: не удалось загрузить конфиг.",
+        "config_startup_explain", "• Восстановить: Конфиг будет сброшен к значениям по умолчанию.`n• Продолжить: Конфиг не будет считан, новые настройки не сохранятся.",
+        "config_reload_explain", "• Восстановить: Конфиг будет восстановлен с кэшированными или стандартными значениями.`n• Продолжить: Конфиг не будет считан.",
+        "config_option_repair", "Восстановить",
+        "config_option_default", "Продолжить",
+        "config_confirm", "Вы уверены?",
+        "config_confirm_btn", "Подтвердить",
+        "config_no_cache_warning", "Кэш настроек не найден. Старые настройки будут утеряны. Вы уверены?",
+        "startup_invalid", "Недействительный параметр запуска. Добавьте его вручную или запустите установщик снова.",
+        "startup_help", "Мне нужна помощь.",
+        "startup_admin_required", "Для изменения параметра высокого приоритета запуска требуется права администратора. Продолжить?"
     )
     
     ; Chinese (Simplified)
@@ -141,6 +207,11 @@ InitLocalization() {
         "mode_cursor", "光标位置",
         "mode_cursor_hint", "调节鼠标光标所在的监视器",
         "enable_animations", "启用动画",
+        "enable_popup", "启用OSD弹窗",
+        "startup_mode", "启动模式:",
+        "startup_disabled", "禁用",
+        "startup_normal", "普通 (启动文件夹)",
+        "startup_high", "高优先级 (任务计划)",
         "language", "语言:",
         "save_restart", "保存",
         "undo", "撤销",
@@ -157,7 +228,24 @@ InitLocalization() {
         "send", "发送",
         "version", "版本",
         "monitor_detected", "个监视器已检测!",
-        "searching", "正在搜索DDC/CI监视器..."
+        "searching", "正在搜索DDC/CI监视器...",
+        "menu_settings", "设置",
+        "menu_reload", "重新加载配置",
+        "menu_exit", "退出",
+        "config_error_title", "配置错误",
+        "config_reloaded", "配置已重新加载。",
+        "config_repaired", "配置已修复。",
+        "config_load_failed", "警告：无法加载配置。",
+        "config_startup_explain", "• 修复：配置将重置为默认值。`n• 继续：配置将不会被读取，新设置也不会保存。",
+        "config_reload_explain", "• 修复：配置将使用缓存或默认值重新创建。`n• 继续：配置将不会被读取。",
+        "config_option_repair", "修复",
+        "config_option_default", "继续",
+        "config_confirm", "确定吗？",
+        "config_confirm_btn", "确认",
+        "config_no_cache_warning", "未找到缓存设置。旧设置将丢失，将使用默认值。确定吗？",
+        "startup_invalid", "启动选项无效。请手动添加或重新运行安装程序。",
+        "startup_help", "我需要帮助。",
+        "startup_admin_required", "更改高优先级启动设置需要管理员权限。是否继续？"
     )
     
     ; Japanese
@@ -173,6 +261,11 @@ InitLocalization() {
         "mode_cursor", "カーソル位置",
         "mode_cursor_hint", "マウスカーソルのあるモニターを調整",
         "enable_animations", "アニメーションを有効化",
+        "enable_popup", "OSDポップアップを有効化",
+        "startup_mode", "起動モード:",
+        "startup_disabled", "無効",
+        "startup_normal", "通常 (スタートアップフォルダ)",
+        "startup_high", "高優先度 (タスクスケジューラ)",
         "language", "言語:",
         "save_restart", "保存",
         "undo", "元に戻す",
@@ -189,7 +282,24 @@ InitLocalization() {
         "send", "送信",
         "version", "バージョン",
         "monitor_detected", "台のモニターが検出されました!",
-        "searching", "DDC/CIモニターを検索中..."
+        "searching", "DDC/CIモニターを検索中...",
+        "menu_settings", "設定",
+        "menu_reload", "設定を再読み込み",
+        "menu_exit", "終了",
+        "config_error_title", "設定エラー",
+        "config_reloaded", "設定が再読み込みされました。",
+        "config_repaired", "設定が修復されました。",
+        "config_load_failed", "警告：設定を読み込めませんでした。",
+        "config_startup_explain", "• 修復：設定がデフォルト値にリセットされます。`n• 続行：設定は読み込まれず、新しい設定も保存されません。",
+        "config_reload_explain", "• 修復：設定がキャッシュまたはデフォルト値で再作成されます。`n• 続行：設定は読み込まれません。",
+        "config_option_repair", "修復",
+        "config_option_default", "続行",
+        "config_confirm", "よろしいですか？",
+        "config_confirm_btn", "確認",
+        "config_no_cache_warning", "キャッシュ設定が見つかりません。古い設定は失われ、デフォルト値が使用されます。よろしいですか？",
+        "startup_invalid", "無効な起動オプションです。手動で追加するか、インストーラーを再実行してください。",
+        "startup_help", "ヘルプが必要です。",
+        "startup_admin_required", "高優先度起動設定を変更するには管理者権限が必要です。続行しますか？"
     )
 }
 
@@ -219,6 +329,7 @@ global monitorMode := "all"  ; "all", "cursor", or "1", "2", etc.
 
 ; Popup
 global popupTimeout := 2000
+global popupEnabled := true
 global popupWidth := 193
 global popupHeight := 50
 global popupRadius := 10
@@ -227,6 +338,9 @@ global popupMarginBottom := 12
 ; Animation
 global animationEnabled := true
 global animationDuration := 200
+
+; Startup Mode (0=disabled, 1=normal, 2=high priority)
+global startupMode := 0
 global animationCloseDuration := 200
 global animationStartOffset := 60
 
@@ -274,6 +388,7 @@ LoadConfig() {
     monitorMode := IniRead(configFile, "Monitor", "monitorMode", "all")
     
     popupTimeout := Integer(IniRead(configFile, "Popup", "popupTimeout", "2000"))
+    popupEnabled := (IniRead(configFile, "Popup", "popupEnabled", "true") = "true")
     
     animationEnabled := (IniRead(configFile, "Animation", "animationEnabled", "true") = "true")
     
@@ -282,6 +397,10 @@ LoadConfig() {
 
 SaveConfig() {
     global
+    
+    ; Don't write to config if it couldn't be read (user chose to continue with defaults)
+    if (!configReadable)
+        return
     
     IniWrite(hotkeyDecrease, configFile, "Hotkeys", "hotkeyDecrease")
     IniWrite(hotkeyIncrease, configFile, "Hotkeys", "hotkeyIncrease")
@@ -292,10 +411,434 @@ SaveConfig() {
     IniWrite(monitorMode, configFile, "Monitor", "monitorMode")
     
     IniWrite(popupTimeout, configFile, "Popup", "popupTimeout")
+    IniWrite(popupEnabled ? "true" : "false", configFile, "Popup", "popupEnabled")
     
     IniWrite(animationEnabled ? "true" : "false", configFile, "Animation", "animationEnabled")
     
     IniWrite(currentLanguage, configFile, "General", "language")
+}
+
+; ========================= CONFIG VALIDATION SYSTEM =========================
+
+global configReadable := false      ; Config başarıyla okunabildi mi?
+global configCached := Map()        ; Son başarılı okumadaki değerler
+
+; Cache current config values
+CacheConfig() {
+    global configCached, hotkeyDecrease, hotkeyIncrease, brightnessStep
+    global brightnessRampSpeed, monitorMode, popupTimeout, popupEnabled, animationEnabled, currentLanguage, startupMode
+    
+    configCached["hotkeyDecrease"] := hotkeyDecrease
+    configCached["hotkeyIncrease"] := hotkeyIncrease
+    configCached["brightnessStep"] := brightnessStep
+    configCached["brightnessRampSpeed"] := brightnessRampSpeed
+    configCached["monitorMode"] := monitorMode
+    configCached["popupTimeout"] := popupTimeout
+    configCached["popupEnabled"] := popupEnabled
+    configCached["animationEnabled"] := animationEnabled
+    configCached["language"] := currentLanguage
+    configCached["startupMode"] := startupMode
+}
+
+; Restore config from cache
+RestoreFromCache() {
+    global configCached, hotkeyDecrease, hotkeyIncrease, brightnessStep
+    global brightnessRampSpeed, monitorMode, popupTimeout, popupEnabled, animationEnabled, currentLanguage, startupMode
+    
+    if (configCached.Count = 0)
+        return false
+    
+    hotkeyDecrease := configCached["hotkeyDecrease"]
+    hotkeyIncrease := configCached["hotkeyIncrease"]
+    brightnessStep := configCached["brightnessStep"]
+    brightnessRampSpeed := configCached["brightnessRampSpeed"]
+    monitorMode := configCached["monitorMode"]
+    popupTimeout := configCached["popupTimeout"]
+    popupEnabled := configCached["popupEnabled"]
+    animationEnabled := configCached["animationEnabled"]
+    currentLanguage := configCached["language"]
+    startupMode := configCached["startupMode"]
+    return true
+}
+
+; ========================= STARTUP MODE DETECTION =========================
+
+global detectedStartupMode := 0  ; Detected state (not from config)
+
+; Detect actual startup configuration
+; Returns: 0=disabled, 1=normal (startup folder), 2=high priority (task scheduler)
+DetectStartupMode() {
+    global detectedStartupMode
+    
+    ; Check for Task Scheduler task (high priority) - using hidden command
+    try {
+        tempFile := A_Temp "\bc_schtask_check.txt"
+        RunWait(A_ComSpec ' /c schtasks /Query /TN "BrightnessController" > "' tempFile '" 2>&1',, "Hide")
+        if (FileExist(tempFile)) {
+            result := FileRead(tempFile)
+            FileDelete(tempFile)
+            if (InStr(result, "BrightnessController")) {
+                detectedStartupMode := 2
+                return 2
+            }
+        }
+    }
+    
+    ; Check for Startup folder shortcut (normal priority)
+    startupShortcut := A_Startup "\Brightness Controller.lnk"
+    if (FileExist(startupShortcut)) {
+        detectedStartupMode := 1
+        return 1
+    }
+    
+    ; Neither found
+    detectedStartupMode := 0
+    return 0
+}
+
+; Apply startup mode changes
+; Returns: true if successful, false if cancelled or failed
+ApplyStartupMode(newMode, currentMode) {
+    ; If no change needed, return success
+    if (newMode = currentMode)
+        return true
+    
+    startupShortcut := A_Startup "\Brightness Controller.lnk"
+    
+    ; Handle transitions
+    if (newMode = 2) {
+        ; Switching TO high priority - needs admin for schtasks
+        ; First remove normal startup if exists
+        if (FileExist(startupShortcut))
+            FileDelete(startupShortcut)
+        
+        ; Create task scheduler entry (requires elevation)
+        cmdLine := '\"' (A_IsCompiled ? A_ScriptFullPath : A_AhkPath) '\"'
+        if (!A_IsCompiled)
+            cmdLine .= ' \"' A_ScriptFullPath '\"'
+        
+        try {
+            ; Use cmd with runas verb for admin elevation
+            Run('*RunAs ' A_ComSpec ' /c schtasks /Create /TN "BrightnessController" /TR "' cmdLine '" /SC ONLOGON /RL HIGHEST /F')
+            Sleep(1000)  ; Wait for command to complete
+            return true
+        } catch {
+            return false
+        }
+    }
+    else if (currentMode = 2) {
+        ; Switching FROM high priority - needs admin to remove schtasks
+        try {
+            Run('*RunAs ' A_ComSpec ' /c schtasks /Delete /TN "BrightnessController" /F')
+            Sleep(1000)  ; Wait for command to complete
+        } catch {
+            return false
+        }
+        
+        ; Now apply new mode (normal or disabled)
+        if (newMode = 1) {
+            ; Create startup shortcut
+            return CreateStartupShortcut()
+        }
+        return true  ; Disabled - nothing more to do
+    }
+    else if (newMode = 1) {
+        ; Normal startup - create shortcut
+        return CreateStartupShortcut()
+    }
+    else if (newMode = 0) {
+        ; Disabled - remove shortcut if exists
+        if (FileExist(startupShortcut))
+            FileDelete(startupShortcut)
+        return true
+    }
+    
+    return true
+}
+
+; Create startup folder shortcut
+CreateStartupShortcut() {
+    try {
+        startupShortcut := A_Startup "\Brightness Controller.lnk"
+        shell := ComObject("WScript.Shell")
+        shortcut := shell.CreateShortcut(startupShortcut)
+        if (A_IsCompiled) {
+            shortcut.TargetPath := A_ScriptFullPath
+        } else {
+            shortcut.TargetPath := A_AhkPath
+            shortcut.Arguments := '"' A_ScriptFullPath '"'
+        }
+        shortcut.WorkingDirectory := A_ScriptDir
+        shortcut.Description := "Brightness Controller for Desktop"
+        iconPath := A_ScriptDir "\assets\brightness_icon.ico"
+        if (FileExist(iconPath))
+            shortcut.IconLocation := iconPath
+        shortcut.Save()
+        return true
+    } catch {
+        return false
+    }
+}
+
+; Check if config has errors
+HasConfigErrors() {
+    global configFile
+    
+    if (!FileExist(configFile))
+        return false  ; No file = no errors
+    
+    try {
+        fileContent := FileRead(configFile)
+        
+        ; Check if expected keys exist in config (exact names)
+        expectedKeys := [
+            ["Hotkeys", "hotkeyDecrease"],
+            ["Hotkeys", "hotkeyIncrease"],
+            ["Brightness", "brightnessStep"],
+            ["Brightness", "brightnessRampSpeed"],
+            ["Monitor", "monitorMode"],
+            ["Popup", "popupTimeout"],
+            ["Popup", "popupEnabled"],
+            ["Animation", "animationEnabled"],
+            ["General", "language"]
+        ]
+        
+        for key in expectedKeys {
+            ; Check if section and key name appear correctly in file
+            if (!InStr(fileContent, key[2] "="))
+                return true  ; Key not found or misspelled
+        }
+        
+        ; Check numeric values
+        numericKeys := [["Brightness", "brightnessStep"], ["Brightness", "brightnessRampSpeed"], ["Popup", "popupTimeout"]]
+        for key in numericKeys {
+            val := IniRead(configFile, key[1], key[2], "")
+            if (val != "" && !RegExMatch(val, "^\d+$"))
+                return true
+        }
+        
+        ; Check boolean values (animationEnabled and popupEnabled)
+        animVal := IniRead(configFile, "Animation", "animationEnabled", "")
+        if (animVal != "" && animVal != "true" && animVal != "false")
+            return true
+        
+        popupVal := IniRead(configFile, "Popup", "popupEnabled", "")
+        if (popupVal != "" && popupVal != "true" && popupVal != "false")
+            return true
+        
+        ; Check language
+        langVal := IniRead(configFile, "General", "language", "")
+        validLangs := ["en", "tr", "ru", "zh", "ja", ""]
+        langValid := false
+        for l in validLangs {
+            if (langVal = l)
+                langValid := true
+        }
+        if (!langValid)
+            return true
+        
+        ; Check monitorMode - must be "all", "cursor", or a number
+        modeVal := IniRead(configFile, "Monitor", "monitorMode", "")
+        if (modeVal != "") {
+            if (modeVal != "all" && modeVal != "cursor" && !RegExMatch(modeVal, "^\d+$"))
+                return true
+        }
+            
+    } catch {
+        return true
+    }
+    
+    return false
+}
+
+; Startup config validation
+ValidateConfigOnStartup() {
+    global configReadable, configFile
+    
+    if (!FileExist(configFile)) {
+        ; No config file - create default
+        SaveConfig()
+        configReadable := true
+        CacheConfig()
+        return
+    }
+    
+    if (HasConfigErrors()) {
+        ; Show error dialog
+        ShowStartupConfigError()
+    } else {
+        ; Config OK - load and cache
+        LoadConfig()
+        configReadable := true
+        CacheConfig()
+    }
+}
+
+ShowStartupConfigError() {
+    global configReadable
+    
+    ; Create custom dialog GUI
+    ; Content width: 340px, 3 buttons (100px each) + 2 gaps (10px) = 320px, margin 10px each side
+    errorGui := Gui("+AlwaysOnTop -MinimizeBox", GetText("config_error_title"))
+    errorGui.SetFont("s10", "Segoe UI")
+    errorGui.MarginX := 20
+    errorGui.MarginY := 15
+    
+    ; Warning icon and message
+    errorGui.AddText("w320 Center", "⚠️ " GetText("config_load_failed"))
+    errorGui.AddText("w320 y+15", GetText("config_startup_explain"))
+    
+    ; Centered buttons - 3 equal buttons (100px) with 10px gaps
+    errorGui.AddButton("w100 y+20 x20", GetText("config_option_repair")).OnEvent("Click", (*) => StartupRepairClicked(errorGui))
+    errorGui.AddButton("x+10 w100", GetText("config_option_default")).OnEvent("Click", (*) => StartupDefaultClicked(errorGui))
+    errorGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => ExitApp())
+    
+    errorGui.OnEvent("Close", (*) => ExitApp())
+    errorGui.Show()
+    
+    ; Wait for dialog to close
+    WinWaitClose("ahk_id " errorGui.Hwnd)
+}
+
+StartupRepairClicked(errorGui) {
+    global configReadable
+    
+    ; Confirm dialog - 2 buttons (100px each) + 1 gap (10px) = 210px, margin 15px each side = 240px content
+    confirmGui := Gui("+AlwaysOnTop -MinimizeBox +Owner" errorGui.Hwnd, GetText("config_error_title"))
+    confirmGui.SetFont("s10", "Segoe UI")
+    confirmGui.MarginX := 15
+    confirmGui.MarginY := 15
+    confirmGui.AddText("w210 Center", GetText("config_confirm"))
+    confirmGui.AddButton("w100 y+15 x15", GetText("config_confirm_btn")).OnEvent("Click", (*) => (
+        configReadable := true,
+        SaveConfig(),
+        CacheConfig(),
+        confirmGui.Destroy(),
+        errorGui.Destroy()
+    ))
+    confirmGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => confirmGui.Destroy())
+    confirmGui.Show()
+}
+
+StartupDefaultClicked(errorGui) {
+    global configReadable
+    
+    ; Confirm dialog - 2 buttons (100px each) + 1 gap (10px) = 210px, margin 15px each side
+    confirmGui := Gui("+AlwaysOnTop -MinimizeBox +Owner" errorGui.Hwnd, GetText("config_error_title"))
+    confirmGui.SetFont("s10", "Segoe UI")
+    confirmGui.MarginX := 15
+    confirmGui.MarginY := 15
+    confirmGui.AddText("w210 Center", GetText("config_confirm"))
+    confirmGui.AddButton("w100 y+15 x15", GetText("config_confirm_btn")).OnEvent("Click", (*) => (
+        configReadable := false,
+        confirmGui.Destroy(),
+        errorGui.Destroy()
+    ))
+    confirmGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => confirmGui.Destroy())
+    confirmGui.Show()
+}
+
+; Reload config with validation
+ReloadConfigWithValidation() {
+    global configReadable, configCached
+    
+    if (HasConfigErrors()) {
+        ShowReloadConfigError()
+    } else {
+        ; Config OK - reload
+        LoadConfig()
+        configReadable := true
+        CacheConfig()
+        BuildTrayMenu()
+        ToolTip("✓ " GetText("config_reloaded"))
+        SetTimer(() => ToolTip(), -2000)
+    }
+}
+
+ShowReloadConfigError() {
+    global configReadable, configCached
+    
+    ; Create custom dialog GUI
+    ; Content width: 340px, 3 buttons (100px each) + 2 gaps (10px) = 320px, margin 10px each side
+    errorGui := Gui("+AlwaysOnTop -MinimizeBox", GetText("config_error_title"))
+    errorGui.SetFont("s10", "Segoe UI")
+    errorGui.MarginX := 20
+    errorGui.MarginY := 15
+    
+    ; Warning icon and message
+    errorGui.AddText("w320 Center", "⚠️ " GetText("config_load_failed"))
+    errorGui.AddText("w320 y+15", GetText("config_reload_explain"))
+    
+    ; Centered buttons - 3 equal buttons (100px) with 10px gaps
+    errorGui.AddButton("w100 y+20 x20", GetText("config_option_repair")).OnEvent("Click", (*) => ReloadRepairClicked(errorGui))
+    errorGui.AddButton("x+10 w100", GetText("config_option_default")).OnEvent("Click", (*) => ReloadDefaultClicked(errorGui))
+    errorGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => errorGui.Destroy())
+    
+    errorGui.OnEvent("Close", (*) => errorGui.Destroy())
+    errorGui.Show()
+}
+
+ReloadRepairClicked(errorGui) {
+    global configReadable, configCached
+    
+    if (configCached.Count > 0) {
+        ; Cache exists - confirm - 2 buttons (100px each) + 1 gap (10px) = 210px, margin 15px each side
+        confirmGui := Gui("+AlwaysOnTop -MinimizeBox +Owner" errorGui.Hwnd, GetText("config_error_title"))
+        confirmGui.SetFont("s10", "Segoe UI")
+        confirmGui.MarginX := 15
+        confirmGui.MarginY := 15
+        confirmGui.AddText("w210 Center", GetText("config_confirm"))
+        confirmGui.AddButton("w100 y+15 x15", GetText("config_confirm_btn")).OnEvent("Click", (*) => (
+            RestoreFromCache(),
+            configReadable := true,
+            SaveConfig(),
+            BuildTrayMenu(),
+            ToolTip("✓ " GetText("config_repaired")),
+            SetTimer(() => ToolTip(), -2000),
+            confirmGui.Destroy(),
+            errorGui.Destroy()
+        ))
+        confirmGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => confirmGui.Destroy())
+        confirmGui.Show()
+    } else {
+        ; No cache - warn about losing settings - wider dialog for longer text
+        confirmGui := Gui("+AlwaysOnTop -MinimizeBox +Owner" errorGui.Hwnd, GetText("config_error_title"))
+        confirmGui.SetFont("s10", "Segoe UI")
+        confirmGui.MarginX := 15
+        confirmGui.MarginY := 15
+        confirmGui.AddText("w320 Center", GetText("config_no_cache_warning"))
+        ; 2 buttons centered in 320px: (320 - 210) / 2 + 15 = 70px x position
+        confirmGui.AddButton("w100 y+15 x70", GetText("config_confirm_btn")).OnEvent("Click", (*) => (
+            configReadable := true,
+            SaveConfig(),
+            CacheConfig(),
+            BuildTrayMenu(),
+            ToolTip("✓ " GetText("config_repaired")),
+            SetTimer(() => ToolTip(), -2000),
+            confirmGui.Destroy(),
+            errorGui.Destroy()
+        ))
+        confirmGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => confirmGui.Destroy())
+        confirmGui.Show()
+    }
+}
+
+ReloadDefaultClicked(errorGui) {
+    global configReadable
+    
+    ; Confirm dialog - 2 buttons (100px each) + 1 gap (10px) = 210px, margin 15px each side
+    confirmGui := Gui("+AlwaysOnTop -MinimizeBox +Owner" errorGui.Hwnd, GetText("config_error_title"))
+    confirmGui.SetFont("s10", "Segoe UI")
+    confirmGui.MarginX := 15
+    confirmGui.MarginY := 15
+    confirmGui.AddText("w210 Center", GetText("config_confirm"))
+    confirmGui.AddButton("w100 y+15 x15", GetText("config_confirm_btn")).OnEvent("Click", (*) => (
+        configReadable := false,
+        confirmGui.Destroy(),
+        errorGui.Destroy()
+    ))
+    confirmGui.AddButton("x+10 w100", GetText("cancel")).OnEvent("Click", (*) => confirmGui.Destroy())
+    confirmGui.Show()
 }
 
 ; ========================= MULTI-MONITOR SUPPORT =========================
@@ -516,7 +1059,7 @@ global settingsGui := 0
 
 ; ========================= INITIALIZATION =========================
 
-LoadConfig()
+ValidateConfigOnStartup()
 EnumerateMonitors()
 
 ; Set custom tray icon (check assets folder first, then root)
@@ -526,13 +1069,20 @@ if (!FileExist(iconFile))
 if (FileExist(iconFile))
     TraySetIcon(iconFile)
 
-; Create system tray menu
-A_TrayMenu.Delete()
-A_TrayMenu.Add("Settings", ShowSettingsGui)
-A_TrayMenu.Add("Reload Config", (*) => (LoadConfig(), EnumerateMonitors()))
-A_TrayMenu.Add()
-A_TrayMenu.Add("Exit", (*) => ExitApp())
-A_TrayMenu.Default := "Settings"
+; Create system tray menu (initial build)
+BuildTrayMenu()
+
+BuildTrayMenu() {
+    A_TrayMenu.Delete()
+    A_TrayMenu.Add(GetText("menu_settings"), ShowSettingsGui)
+    A_TrayMenu.Add(GetText("menu_reload"), (*) => ReloadConfigWithValidation())
+    A_TrayMenu.Add()
+    A_TrayMenu.Add(GetText("menu_exit"), (*) => ExitApp())
+    ; No default - double-click will trigger popup slider
+}
+
+; Handle tray icon double-click
+OnMessage(0x404, TrayIconClick)  ; WM_TRAYICON = 0x404
 
 ; Show startup tooltip
 try {
@@ -594,6 +1144,216 @@ OnKeyUp(*) {
     SetTimer(RepeatAdjust, 0)
     repeatTimer := 0
 }
+; ========================= BRIGHTNESS POPUP SLIDER =========================
+
+global brightnessPopup := 0
+global brightnessSlider := 0
+global popupHwndSlider := 0
+
+TrayIconClick(wParam, lParam, msg, hwnd) {
+    if (lParam = 0x203) {  ; WM_LBUTTONDBLCLK (double-click)
+        ; Close system tray notification area (send Escape)
+        Send("{Escape}")
+        Sleep(50)
+        ShowBrightnessPopup()
+    }
+    ; Don't return 1 - let other messages pass through for right-click menu
+}
+
+ShowBrightnessPopup() {
+    global brightnessPopup, brightnessSlider, monitorHandles, popupHwndSlider
+    global popupSliderValue, popupProgressBar, popupSliderDragging
+    
+    ; Close existing popup if open
+    if (brightnessPopup) {
+        try brightnessPopup.Destroy()
+        brightnessPopup := 0
+    }
+    
+    ; Get current brightness
+    popupSliderValue := GetCurrentBrightness()
+    popupSliderDragging := false
+    
+    ; Modern dark rounded popup
+    brightnessPopup := Gui("+AlwaysOnTop -Caption +ToolWindow")
+    brightnessPopup.BackColor := "1A1A1A"
+    
+    ; Round corners using DWM
+    try {
+        DllCall("dwmapi\DwmSetWindowAttribute", "ptr", brightnessPopup.Hwnd, 
+            "int", 33, "int*", 2, "int", 4)
+    }
+    
+    brightnessPopup.AddProgress("x15 y18 w170 h12 Background333333 c60CDFF Range0-100 -Tabstop vSliderBar", popupSliderValue)
+    popupProgressBar := brightnessPopup["SliderBar"]
+    
+    ; Get cursor position and center popup there
+    CoordMode("Mouse", "Screen")
+    MouseGetPos(&mouseX, &mouseY)
+    
+    popupW := 200
+    popupH := 48
+    popupX := mouseX - (popupW // 2)
+    popupY := mouseY - 25  ; Below cursor
+    
+    ; Keep on screen
+    if (popupX < 10)
+        popupX := 10
+    if (popupX + popupW > A_ScreenWidth - 10)
+        popupX := A_ScreenWidth - popupW - 10
+    if (popupY < 10)
+        popupY := mouseY + 20
+    
+    brightnessPopup.Show("x" popupX " y" popupY " w" popupW " h" popupH)
+    popupHwndSlider := brightnessPopup.Hwnd
+    
+    ; Register global scroll hotkeys
+    Hotkey("WheelUp", PopupScrollDown, "On")
+    Hotkey("WheelDown", PopupScrollUp, "On")
+    
+    ; Start timer to check if popup lost focus and handle dragging
+    SetTimer(CheckPopupFocus, 100)
+    SetTimer(CheckPopupDrag, 16)
+}
+
+CheckPopupDrag() {
+    global popupSliderDragging, brightnessPopup, popupHwndSlider
+    
+    if (!brightnessPopup)
+        return
+    
+    ; Check if left mouse button is pressed
+    if (GetKeyState("LButton", "P")) {
+        ; Check if mouse is over our popup
+        MouseGetPos(,, &winHwnd)
+        if (winHwnd = popupHwndSlider) {
+            popupSliderDragging := true
+            UpdateSliderFromMouse()
+        }
+    } else {
+        popupSliderDragging := false
+    }
+}
+
+UpdateSliderFromMouse() {
+    global popupSliderValue, popupProgressBar, brightnessPopup, currentTarget, rampTimer
+    
+    if (!brightnessPopup || !popupProgressBar)
+        return
+    
+    ; Get mouse position relative to progress bar
+    CoordMode("Mouse", "Client")
+    MouseGetPos(&mx, &my, &winHwnd)
+    
+    if (winHwnd != brightnessPopup.Hwnd)
+        return
+    
+    ; Progress bar is at x=15, w=170
+    barX := 15
+    barW := 170
+    
+    ; Calculate value from mouse X position
+    relX := mx - barX
+    newValue := Round((relX / barW) * 100)
+    newValue := Max(0, Min(100, newValue))
+    
+    if (newValue != popupSliderValue) {
+        popupSliderValue := newValue
+        popupProgressBar.Value := newValue
+        
+        ; Update brightness
+        currentTarget := newValue
+        if (!rampTimer) {
+            rampTimer := 1
+            SetTimer(BrightnessRamp, 50)
+        }
+    }
+}
+
+PopupScrollDown(*) {
+    global popupSliderValue, popupProgressBar, currentTarget, rampTimer
+    if (popupProgressBar) {
+        newVal := Min(100, popupSliderValue + 5)
+        popupSliderValue := newVal
+        popupProgressBar.Value := newVal
+        currentTarget := newVal
+        if (!rampTimer) {
+            rampTimer := 1
+            SetTimer(BrightnessRamp, 50)
+        }
+    }
+}
+
+PopupScrollUp(*) {
+    global popupSliderValue, popupProgressBar, currentTarget, rampTimer
+    if (popupProgressBar) {
+        newVal := Max(0, popupSliderValue - 5)
+        popupSliderValue := newVal
+        popupProgressBar.Value := newVal
+        currentTarget := newVal
+        if (!rampTimer) {
+            rampTimer := 1
+            SetTimer(BrightnessRamp, 50)
+        }
+    }
+}
+
+CheckPopupFocus() {
+    global brightnessPopup, popupHwndSlider
+    
+    if (!brightnessPopup || !popupHwndSlider)
+        return
+    
+    ; Get the currently active window (with error handling)
+    try {
+        activeHwnd := WinGetID("A")
+    } catch {
+        ; No active window - close popup
+        SetTimer(CheckPopupFocus, 0)
+        CloseBrightnessPopup()
+        return
+    }
+    
+    ; If active window is not our popup, close it
+    if (activeHwnd != popupHwndSlider) {
+        SetTimer(CheckPopupFocus, 0)
+        CloseBrightnessPopup()
+    }
+}
+
+OnSliderChange(ctrl, *) {
+    global currentTarget, rampTimer
+    
+    newValue := ctrl.Value
+    currentTarget := newValue
+    
+    ; Start brightness ramping
+    if (!rampTimer) {
+        rampTimer := 1
+        SetTimer(BrightnessRamp, 50)
+    }
+}
+
+CloseBrightnessPopup() {
+    global brightnessPopup, popupHwndSlider, popupProgressBar, popupSliderDragging
+    
+    SetTimer(CheckPopupFocus, 0)
+    SetTimer(CheckPopupDrag, 0)
+    
+    ; Disable global scroll hotkeys
+    try {
+        Hotkey("WheelUp", "Off")
+        Hotkey("WheelDown", "Off")
+    }
+    
+    if (brightnessPopup) {
+        try brightnessPopup.Destroy()
+        brightnessPopup := 0
+        popupHwndSlider := 0
+        popupProgressBar := 0
+        popupSliderDragging := false
+    }
+}
 
 ; ========================= SETTINGS GUI =========================
 
@@ -602,7 +1362,7 @@ global captureEdit := 0
 
 ShowSettingsGui(*) {
     global settingsGui, hotkeyDecrease, hotkeyIncrease, brightnessStep, monitorMode
-    global animationEnabled, monitorHandles, monitorNames, configFile, currentLanguage, APP_VERSION
+    global animationEnabled, popupEnabled, monitorHandles, monitorNames, configFile, currentLanguage, APP_VERSION
     global guiEditDecrease, guiEditIncrease
     
     if (settingsGui) {
@@ -622,7 +1382,7 @@ ShowSettingsGui(*) {
     halfWidth := (ctrlWidth - gap) // 2       ; (320-5)/2 = 157
     
     settingsGui := Gui("+AlwaysOnTop -MinimizeBox", GetText("settings_title"))
-    settingsGui.MarginX := 18  ; Center controls (default is ~15, +3px offset)
+    settingsGui.MarginX := 15  ; Center controls (default is ~15, +3px offset)
     settingsGui.SetFont("s10", "Segoe UI")
     settingsGui.OnEvent("Close", (*) => CloseSettingsAndFKeyTool())
     
@@ -640,13 +1400,13 @@ ShowSettingsGui(*) {
     
     ; Hotkey Decrease
     settingsGui.AddText("xm y+15 w" ctrlWidth, GetText("hotkey_decrease"))
-    guiEditDecrease := settingsGui.AddEdit("xm y+5 w" (ctrlWidth - 90) " vHotkeyDec ReadOnly", hotkeyDecrease)
+    guiEditDecrease := settingsGui.AddEdit("xm y+5 w" (ctrlWidth - 90) " vHotkeyDec ReadOnly", SymbolToReadable(hotkeyDecrease))
     btnCapDec := settingsGui.AddButton("x+5 w80", GetText("capture"))
     btnCapDec.OnEvent("Click", (*) => StartHotkeyCapture("dec", guiEditDecrease))
     
     ; Hotkey Increase
     settingsGui.AddText("xm y+10 w" ctrlWidth, GetText("hotkey_increase"))
-    guiEditIncrease := settingsGui.AddEdit("xm y+5 w" (ctrlWidth - 90) " vHotkeyInc ReadOnly", hotkeyIncrease)
+    guiEditIncrease := settingsGui.AddEdit("xm y+5 w" (ctrlWidth - 90) " vHotkeyInc ReadOnly", SymbolToReadable(hotkeyIncrease))
     btnCapInc := settingsGui.AddButton("x+5 w80", GetText("capture"))
     btnCapInc.OnEvent("Click", (*) => StartHotkeyCapture("inc", guiEditIncrease))
     
@@ -675,9 +1435,21 @@ ShowSettingsGui(*) {
     }
     ddMode := settingsGui.AddDropDownList("xm y+5 w" ctrlWidth " vMonMode Choose" currentIdx, modeChoices)
     
+    ; Startup Mode dropdown (detect actual startup state)
+    settingsGui.AddText("xm y+15 w" ctrlWidth, GetText("startup_mode"))
+    startupChoices := [GetText("startup_disabled"), GetText("startup_normal"), GetText("startup_high")]
+    detectedMode := DetectStartupMode()  ; Detect actual state
+    startupIdx := detectedMode + 1  ; Convert 0/1/2 to 1/2/3 for dropdown index
+    if (startupIdx < 1 || startupIdx > 3)
+        startupIdx := 1
+    ddStartup := settingsGui.AddDropDownList("xm y+5 w" ctrlWidth " vStartupMode Choose" startupIdx, startupChoices)
+    
     ; Animation checkbox
     settingsGui.AddCheckbox("xm y+15 vAnimEnabled" (animationEnabled ? " Checked" : ""), GetText("enable_animations"))
     
+    ; Popup checkbox
+    settingsGui.AddCheckbox("xm y+5 vPopupEnabled" (popupEnabled ? " Checked" : ""), GetText("enable_popup"))
+
     ; Buttons row 1
     settingsGui.AddButton("xm y+20 w" thirdWidth, GetText("save_restart")).OnEvent("Click", SaveAndRestart)
     settingsGui.AddButton("x+5 w" thirdWidth, GetText("undo")).OnEvent("Click", (*) => UndoChanges())
@@ -764,6 +1536,7 @@ RestoreDefaults() {
     global brightnessStep := 10
     global monitorMode := "all"
     global animationEnabled := true
+    global popupEnabled := true
     
     ; Refresh GUI
     settingsGui.Destroy()
@@ -789,7 +1562,7 @@ ShowFKeySenderGui() {
     ctrlWidth := guiWidth - 30
     
     fKeySenderGui := Gui("+AlwaysOnTop -MinimizeBox", GetText("fkey_title"))
-    fKeySenderGui.MarginX := 18  ; Match Settings margin
+    fKeySenderGui.MarginX := 15  ; Match Settings margin
     fKeySenderGui.SetFont("s10", "Segoe UI")
     fKeySenderGui.OnEvent("Close", (*) => CloseFKeySender())
     
@@ -886,6 +1659,8 @@ StartHotkeyCapture(target, editCtrl) {
     
     ih := InputHook("L1 T10")
     ih.KeyOpt("{All}", "E")
+    ; Exclude modifier keys from triggering end - they should only modify
+    ih.KeyOpt("{LCtrl}{RCtrl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{Ctrl}{Alt}{Shift}", "-E")
     ih.OnEnd := OnHotkeyCaptured
     ih.Start()
 }
@@ -896,32 +1671,46 @@ OnHotkeyCaptured(ih) {
     
     try {
         if (ih.EndReason = "EndKey" && captureEdit && IsObject(captureEdit)) {
-            newKey := ih.EndKey
+            key := ih.EndKey
+            
+            ; Build modifier prefix by checking key states
+            modifiers := ""
+            if GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
+                modifiers .= "#"
+            if GetKeyState("Ctrl", "P")
+                modifiers .= "^"
+            if GetKeyState("Alt", "P")
+                modifiers .= "!"
+            if GetKeyState("Shift", "P")
+                modifiers .= "+"
+            
+            ; Combine modifiers with key
+            newKey := modifiers . key
             
             ; Get current GUI values for dynamic validation
             otherKey := ""
             try {
                 if (captureTarget = "dec" && IsObject(guiEditIncrease))
-                    otherKey := guiEditIncrease.Value
+                    otherKey := ReadableToSymbol(guiEditIncrease.Value)
                 else if (captureTarget = "inc" && IsObject(guiEditDecrease))
-                    otherKey := guiEditDecrease.Value
+                    otherKey := ReadableToSymbol(guiEditDecrease.Value)
             }
             
             ; Validate: don't allow same key for both functions
             if (newKey = otherKey && otherKey != "") {
                 ; Trying to set same key - ignore, restore original
                 if (captureTarget = "dec")
-                    captureEdit.Value := hotkeyDecrease
+                    captureEdit.Value := SymbolToReadable(hotkeyDecrease)
                 else
-                    captureEdit.Value := hotkeyIncrease
+                    captureEdit.Value := SymbolToReadable(hotkeyIncrease)
             } else {
-                captureEdit.Value := newKey
+                captureEdit.Value := SymbolToReadable(newKey)
             }
         } else if (captureEdit && IsObject(captureEdit)) {
             if (captureTarget = "dec")
-                captureEdit.Value := hotkeyDecrease
+                captureEdit.Value := SymbolToReadable(hotkeyDecrease)
             else
-                captureEdit.Value := hotkeyIncrease
+                captureEdit.Value := SymbolToReadable(hotkeyIncrease)
         }
     }
     
@@ -939,6 +1728,68 @@ OnHotkeyCaptured(ih) {
     
     captureTarget := ""
     captureEdit := 0
+}
+
+; Convert symbol format (#^Up) to readable format (Win+Ctrl+Up)
+SymbolToReadable(hotkey) {
+    if (hotkey = "")
+        return ""
+    
+    readable := ""
+    remaining := hotkey
+    
+    ; Check for modifier prefixes
+    if (SubStr(remaining, 1, 1) = "#") {
+        readable .= "Win+"
+        remaining := SubStr(remaining, 2)
+    }
+    if (SubStr(remaining, 1, 1) = "^") {
+        readable .= "Ctrl+"
+        remaining := SubStr(remaining, 2)
+    }
+    if (SubStr(remaining, 1, 1) = "!") {
+        readable .= "Alt+"
+        remaining := SubStr(remaining, 2)
+    }
+    if (SubStr(remaining, 1, 1) = "+") {
+        readable .= "Shift+"
+        remaining := SubStr(remaining, 2)
+    }
+    
+    ; Append the main key
+    readable .= remaining
+    return readable
+}
+
+; Convert readable format (Win+Ctrl+Up) to symbol format (#^Up)
+ReadableToSymbol(readable) {
+    if (readable = "")
+        return ""
+    
+    symbol := ""
+    remaining := readable
+    
+    ; Check for modifier names
+    if (InStr(remaining, "Win+")) {
+        symbol .= "#"
+        remaining := StrReplace(remaining, "Win+", "")
+    }
+    if (InStr(remaining, "Ctrl+")) {
+        symbol .= "^"
+        remaining := StrReplace(remaining, "Ctrl+", "")
+    }
+    if (InStr(remaining, "Alt+")) {
+        symbol .= "!"
+        remaining := StrReplace(remaining, "Alt+", "")
+    }
+    if (InStr(remaining, "Shift+")) {
+        symbol .= "+"
+        remaining := StrReplace(remaining, "Shift+", "")
+    }
+    
+    ; Append the main key
+    symbol .= remaining
+    return symbol
 }
 
 StopHotkeyCapture() {
@@ -970,13 +1821,14 @@ StopHotkeyCapture() {
 }
 
 SaveAndRestart(*) {
-    global settingsGui, hotkeyDecrease, hotkeyIncrease, brightnessStep, monitorMode, animationEnabled
+    global settingsGui, hotkeyDecrease, hotkeyIncrease, brightnessStep, monitorMode, animationEnabled, popupEnabled
     
     StopHotkeyCapture()
     saved := settingsGui.Submit()
     
-    hotkeyDecrease := saved.HotkeyDec
-    hotkeyIncrease := saved.HotkeyInc
+    ; Convert readable format back to symbol format for storage
+    hotkeyDecrease := ReadableToSymbol(saved.HotkeyDec)
+    hotkeyIncrease := ReadableToSymbol(saved.HotkeyInc)
     brightnessStep := Integer(saved.BrightStep)
     
     ; Parse monitor mode from display name
@@ -993,6 +1845,50 @@ SaveAndRestart(*) {
     }
     
     animationEnabled := saved.AnimEnabled
+    popupEnabled := saved.PopupEnabled
+    
+    ; Validate startup mode - convert dropdown selection to integer
+    startupModeVal := saved.StartupMode
+    selectedStartupMode := 0
+    if (startupModeVal = GetText("startup_disabled"))
+        selectedStartupMode := 0
+    else if (startupModeVal = GetText("startup_normal"))
+        selectedStartupMode := 1
+    else if (startupModeVal = GetText("startup_high"))
+        selectedStartupMode := 2
+    
+    ; Detect current startup configuration
+    currentStartupMode := DetectStartupMode()
+    
+    ; Check if high priority is involved (needs admin)
+    if (selectedStartupMode = 2 || currentStartupMode = 2) {
+        if (selectedStartupMode != currentStartupMode) {
+            ; Show admin confirmation dialog only for AHK (EXE can run elevated automatically)
+            if (!A_IsCompiled) {
+                result := MsgBox(GetText("startup_admin_required"), "⚠️ " GetText("startup_mode"), 0x31)  ; OKCancel + Icon!
+                if (result = "Cancel") {
+                    ; User cancelled - keep current mode
+                    startupMode := currentStartupMode
+                    SaveConfig()
+                    Reload()
+                    return
+                }
+            }
+            ; Apply with admin
+            if (ApplyStartupMode(selectedStartupMode, currentStartupMode)) {
+                startupMode := selectedStartupMode
+            } else {
+                ; Failed - keep current
+                startupMode := currentStartupMode
+            }
+        } else {
+            startupMode := selectedStartupMode
+        }
+    } else {
+        ; No high priority involved - apply directly
+        ApplyStartupMode(selectedStartupMode, currentStartupMode)
+        startupMode := selectedStartupMode
+    }
     
     SaveConfig()
     Reload()
@@ -1125,11 +2021,15 @@ DllCall("gdiplus\GdiplusStartup", "ptr*", &pToken, "ptr", si, "ptr", 0)
 ; ========================= POPUP DISPLAY =========================
 
 ShowPopup(value) {
-    global popupHwnd, popupVisible, popupTimeoutTimer, popupLastValue
+    global popupHwnd, popupVisible, popupTimeoutTimer, popupLastValue, popupEnabled
     global popupWidth, popupHeight, popupMarginBottom
     global animationEnabled, animStartTime, animStartY, animTargetY, animX, animActive, animClosing
     global animationDuration, animationStartOffset
     global popupBgColor, popupBgAlpha, barBgColor, barFillColor, iconColor
+    
+    ; Skip OSD if popup is disabled
+    if (!popupEnabled)
+        return
     
     themeColors := GetThemeColors()
     popupBgColor := themeColors.popupBg
