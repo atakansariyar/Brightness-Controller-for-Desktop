@@ -2,6 +2,18 @@
 
 Masaüstü Parlaklık Denetleyicisi için tüm önemli değişiklikler.
 
+## [2.1.1] - 2026-01-13
+
+### Hata Düzeltmeleri
+
+- Kısayol Sınırı Artırıldı - Hızlı parlaklık değişimlerinde AutoHotkey uyarı pencerelerini önlemek için `A_MaxHotkeysPerInterval` varsayılan 71'den 200'e çıkarıldı
+
+### Teşekkürler
+
+Bu sorunu bildirdiği için Reddit'te u/lucifariuss kullanıcısına özel teşekkürler!
+
+---
+
 ## [2.1.0] - 2026-01-10
 
 ### Yeni Özellikler

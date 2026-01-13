@@ -19,7 +19,7 @@ global configName := "config.ini"
 ; Localization
 global setupLang := Map()
 setupLang["en"] := Map(
-    "title", "Brightness Controller - Setup",
+    "title", "Brightness Controller v2.1.1 - Setup",
     "welcome", "Welcome to Brightness Controller Setup",
     "install_to", "Files will be installed to:",
     "install_type", "Installation Type:",
@@ -41,7 +41,7 @@ setupLang["en"] := Map(
     "error_task", "Failed to create scheduled task:"
 )
 setupLang["tr"] := Map(
-    "title", "Parlaklık Denetleyicisi - Kurulum",
+    "title", "Parlaklık Denetleyicisi v2.1.1 - Kurulum",
     "welcome", "Parlaklık Denetleyicisi Kurulumuna Hoş Geldiniz",
     "install_to", "Dosyalar şuraya kurulacak:",
     "install_type", "Kurulum Tipi:",
@@ -63,7 +63,7 @@ setupLang["tr"] := Map(
     "error_task", "Zamanlanmış görev oluşturulamadı:"
 )
 setupLang["ru"] := Map(
-    "title", "Контроллер яркости - Установка",
+    "title", "Контроллер яркости v2.1.1 - Установка",
     "welcome", "Добро пожаловать в установку",
     "install_to", "Файлы будут установлены в:",
     "install_type", "Тип установки:",
@@ -85,7 +85,7 @@ setupLang["ru"] := Map(
     "error_task", "Не удалось создать задачу:"
 )
 setupLang["zh"] := Map(
-    "title", "亮度控制器 - 安装",
+    "title", "亮度控制器 v2.1.1 - 安装",
     "welcome", "欢迎使用亮度控制器安装程序",
     "install_to", "文件将安装到:",
     "install_type", "安装类型:",
@@ -107,7 +107,7 @@ setupLang["zh"] := Map(
     "error_task", "无法创建计划任务:"
 )
 setupLang["ja"] := Map(
-    "title", "明るさコントローラー - セットアップ",
+    "title", "明るさコントローラー v2.1.1 - セットアップ",
     "welcome", "明るさコントローラーへようこそ",
     "install_to", "インストール先:",
     "install_type", "インストールタイプ:",

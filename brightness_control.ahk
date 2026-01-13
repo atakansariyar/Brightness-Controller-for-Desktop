@@ -1,5 +1,5 @@
 ; ============================================================================
-; Brightness Controller for Desktop v2.0
+; Brightness Controller for Desktop v2.1.1
 ; Control external monitor brightness via DDC/CI with a Windows 11 style OSD
 ; https://github.com/atakansariyar/Brightness-Controller-for-Desktop
 ; ============================================================================
@@ -8,6 +8,7 @@
 #SingleInstance Force
 SetWorkingDir A_ScriptDir
 
+A_MaxHotkeysPerInterval := 200
 InstallKeybdHook
 InstallMouseHook
 
@@ -16,7 +17,7 @@ OnExit((*) => DllCall("winmm\timeEndPeriod", "uint", 1))
 
 ; ========================= VERSION =========================
 
-global APP_VERSION := "2.1.0"
+global APP_VERSION := "2.1.1"
 
 ; ========================= GLOBAL CONFIG VARIABLES =========================
 

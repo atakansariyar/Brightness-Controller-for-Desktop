@@ -2,6 +2,18 @@
 
 All notable changes to Brightness Controller for Desktop.
 
+## [2.1.1] - 2026-01-13
+
+### Bug Fixes
+
+- Increased Hotkey Limit - Raised `A_MaxHotkeysPerInterval` from default 71 to 200 to prevent AutoHotkey warning dialogs during rapid brightness adjustments
+
+### Credits
+
+Special thanks to u/lucifariuss on Reddit for reporting this issue!
+
+---
+
 ## [2.1.0] - 2026-01-10
 
 ### New Features
